@@ -1,0 +1,66 @@
+body{
+    background-color: #311000;
+}
+.wrapper1 {
+    width: 310px;
+    height: 200px;
+    border: 2px solid deepskyblue;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 45%;
+    right: 55%;
+}
+.wrapper2 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid deepskyblue;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 45%;
+    right: 30%;
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    background-color: deepskyblue;
+    margin: 10px;
+    padding: 10px 10px 43px 10px;
+    border: 2px solid deepskyblue;
+    border-radius: 15px;
+}
+.wrapperTop {
+    margin: 10px;
+    padding: 10px 10px 20px 10px;
+    border: 2px solid deepskyblue;
+    border-radius: 15px;
+}
+.wrapperButton {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid deepskyblue;
+    border-radius: 15px;
+}
+
+.buttonInc {
+    padding: 10px 20px;
+    background-color: deepskyblue;
+    border: 0px solid deepskyblue;
+    border-radius: 15px;
+}
+
+.buttonReset {
+    padding: 10px 20px;
+    background-color: deepskyblue;
+    border: 0px solid deepskyblue;
+    border-radius: 15px;
+}
+.red{
+    color: red;
+}
+.white{
+    color: white;
+}
