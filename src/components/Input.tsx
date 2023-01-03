@@ -2,18 +2,22 @@ import React, {ChangeEvent, useState} from 'react';
 
 type InputType = {
     title: string
-    valueStart: string
     onChangeHandler: (value: string) => void
+    value: number
 }
 
 
-const Input = (props:InputType) => {
+export const Input = (props:InputType) => {
+    const [value, setValue] = useState(props.value)
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setValue(+e.currentTarget.value)
+        props.onChangeHandler(e.currentTarget.value)
+    }
     return (
         <div style={{color: 'white', marginBottom: '15px'}}>
             <span>{props.title}</span>
-            <input onChange={(e) => props.onChangeHandler(e.currentTarget.value)} type='number'/>
+            <input onChange={onChangeHandler} value={value} type='number'/>
+
         </div>
     );
 };
-
-export default Input;
