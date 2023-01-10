@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 
 type InputType = {
     title: string
@@ -9,6 +9,11 @@ type InputType = {
 
 export const Input = (props:InputType) => {
     const [value, setValue] = useState(props.value)
+
+    useEffect(() => {
+        if(value === props.value) return
+        setValue(props.value)
+    }, [props.value])
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(+e.currentTarget.value)
         props.onChangeHandler(e.currentTarget.value)

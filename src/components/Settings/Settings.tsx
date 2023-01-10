@@ -14,8 +14,6 @@ type SettingsType = {
 
 const Settings = (props: SettingsType) => {
     const {max, min, setMax, setMin, setNumber, setError} = props
-
-
     useEffect(() => {
         if(min === max || min < 0 || min > max){
             setError('Error')
@@ -30,13 +28,22 @@ const Settings = (props: SettingsType) => {
         setMax(+value)
     }
     const setNumberInput = () => {
-            localStorage.setItem('maxValue', JSON.stringify(max))
-            localStorage.setItem('minValue', JSON.stringify(min))
-            setError(null)
-            return min < max ? setNumber(min) : ''
+        localStorage.setItem('maxValue', JSON.stringify(max))
+        localStorage.setItem('minValue', JSON.stringify(min))
+        setError(null)
+        return min < max ? setNumber(min) : ''
     }
     const notSetValue = max !== min ? item.white : item.red
     const clearNumberInput = () => localStorage.clear()
+    const restoreMeaning = () => {
+        let a = localStorage.getItem('maxValue')
+        let b = localStorage.getItem('minValue')
+        if(a && b){
+            setMax(JSON.parse(a))
+            setMin(JSON.parse(b))
+        }
+
+    }
     return (
         <div className={item.wrapper1}>
             <div className={item.wrapperTop}>
@@ -57,6 +64,11 @@ const Settings = (props: SettingsType) => {
                         styleButton={notSetValue}
                         nameButton={'set'}
                         disabled={min === max || min < 0 || min > max}
+                />
+                <Button buttonClass={item.buttonInc}
+                        onClickHandler={restoreMeaning}
+                        nameButton={'restore'}
+                        styleButton={item.white}
                 />
                 <Button buttonClass={item.buttonInc}
                         onClickHandler={clearNumberInput}
